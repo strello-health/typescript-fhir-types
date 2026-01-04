@@ -15,8 +15,7 @@ export class RTTI_codeType extends Type<string> {
 			'RTTI_codeType',
 			/** a custom type guard */
 
-			(m): m is string =>
-				typeof m === 'string' && RTTI_codeType.regexExp.test(m.toString()),
+			(m): m is string => typeof m === 'string',
 			/** succeeds if a value of type I can be decoded to a value of type A */
 
 			(m, c) => (this.is(m) ? success(m) : failure(m, c)),

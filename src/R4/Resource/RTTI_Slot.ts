@@ -30,7 +30,7 @@ export interface ISlot extends IDomainResource {
 	/**
 	 * The schedule resource that this slot defines an interval of status information.
 	 */
-	schedule: IReference;
+	schedule?: IReference;
 
 	/**
 	 * The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.
@@ -164,10 +164,10 @@ export const RTTI_Slot: t.Type<ISlot> = t.recursion('ISlot', () =>
 	t.intersection([
 		t.type({
 			resourceType: t.literal('Slot'),
-			schedule: RTTI_Reference
 		}),
 		t.partial({
 			id: RTTI_id,
+			schedule: RTTI_Reference,
 			meta: RTTI_Meta,
 			implicitRules: RTTI_uri,
 			_implicitRules: RTTI_Element,
